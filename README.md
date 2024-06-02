@@ -9,3 +9,5 @@ Add the above to your .bashrc or .bash_profile or .zshrc, maybe .profile. All de
 I have added the following so this Docker can run on M1 MacBook
 
 ` platform: linux/amd64`
+
+Find and comment out if you are not running a Mac on an "ARM" chip.
