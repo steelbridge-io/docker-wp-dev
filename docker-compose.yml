@@ -1,16 +1,26 @@
 version: '3.3'
 
 services:
+        # Defines a 'db' service
         db:
+                # Specifies the platform on which the service will run
                 platform: linux/amd64
+                # Specifies the Docker image to use for the 'db' service
                 image: mysql:5.7
+                # Defines the volume for persisting the database data
                 volumes:
                         - db_data:/var/lib/mysql
+                # Ensures the service is always restarted by Docker
                 restart: always
+                # Specifies environment variables which are required by the mysql image
                 environment:
+                        # Root password for the MySQL instance
                         MYSQL_ROOT_PASSWORD: somewordpress
+                        # The name of the database
                         MYSQL_DATABASE: wordpress
+                        # The username for WordPress to connect to MySQL
                         MYSQL_USER: wordpress
+                        # The password for this user
                         MYSQL_PASSWORD: wordpress
 
         wordpress:
