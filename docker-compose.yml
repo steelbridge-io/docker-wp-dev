@@ -1,12 +1,14 @@
 version: '3.3'
 
+# Note: Add wp-cli.yml to /wordpress and add: config: HTTP_HOST: yourdomain.com
+
 services:
         # Defines a 'db' service
         db:
                 # Specifies the platform on which the service will run
                 platform: linux/amd64
-                # Specifies the Docker image to use for the 'db' service
-                image: mysql:5.7
+                # Specifies the Docker image to use for the 'db' service. Can use mariadb:10.5
+                image: mysql:5.7 # Can use mariadb:10.5 for TFS multi-site
                 # Defines the volume for persisting the database data
                 volumes:
                         - db_data:/var/lib/mysql
@@ -55,6 +57,9 @@ services:
                         WORDPRESS_DB_PASSWORD: wordpress
                         WORDPRESS_DB_NAME: wordpress
                         WORDPRESS_TABLE_PREFIX: ZwMoC6PX_
+                        HTTP_HOST: http://yourdomain.com
+                # This keeps wp-cli running. Not mandatory, as wp-cli runs only when command is run. For local environment only.
+                command: tail -f /dev/null
 
         phpmyadmin:
                 platform: linux/amd64
