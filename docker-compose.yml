@@ -58,7 +58,7 @@ services:
                         WORDPRESS_DB_NAME: wordpress
                         WORDPRESS_TABLE_PREFIX: ZwMoC6PX_
                         HTTP_HOST: http://yourdomain.com
-                # This keeps wp-cli running. Not mandatory, as wp-cli runs only when command is run. For local environment only.
+                # This keeps wp-cli running. Not mandatory, as wp-cli runs only when command is run. For local environment only. Comment out if plugin updates ask for FTP credentials.
                 command: tail -f /dev/null
 
         phpmyadmin:
